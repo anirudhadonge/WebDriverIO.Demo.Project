@@ -27,3 +27,15 @@ Then(/^URL should match (.*)$/, async function(expectedUrl){
     let currentUrl = await browser.getUrl()
     chai.expect(currentUrl).to.equals(expectedUrl)
 })
+
+When(/^A web page is open$/, async function(){
+    console.log("Before opening browser")
+    await browser.maximizeWindow()
+    await browser.url("")
+    console.log("After opening browser")
+})
+
+Then(/^Perform web Interactions$/,async function(){
+    await browser.url('/inputs')
+    await browser.pause(5000)
+})
