@@ -12,6 +12,7 @@ Given(/^Google page is opened$/, async function(){
 When(/^Search with (.*)$/, async function(searchItem){
     console.log("Before opening browser")
     let textBox = $('[name=q]')
+    textBox.waitUntil
     await textBox.setValue(searchItem)
     await (await textBox).keys("Enter")
 })
